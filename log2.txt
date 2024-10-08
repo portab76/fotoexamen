@@ -1,0 +1,6 @@
+45 
+{
+  "letra": "c",
+  "respuesta": "Tema 2: Navegación. 2.1. Navegación de estima. 2.1.1. Concepto de navegación de estima. 2.1.2. Elementos de la navegación de estima. 2.1.3. Métodos de estima.",
+  "razonamiento": "Para calcular la situación de estima, primero se calcula el rumbo verdadero (Rv) sumando el desvío de la aguja (-8°) al rumbo de aguja (116°), obteniendo Rv = 108°. Luego se calcula la deriva, que en este caso no se proporciona, por lo que se considera nula. Se calcula el tiempo transcurrido, que es de 2h 15m. Se calcula la distancia recorrida multiplicando la velocidad (6 nudos) por el tiempo transcurrido (2,25 horas), obteniendo 13,5 millas. Finalmente, se aplica el cálculo de la situación de estima, utilizando la situación verdadera inicial, el rumbo verdadero y la distancia recorrida, obteniendo como resultado la opción c). "
+}

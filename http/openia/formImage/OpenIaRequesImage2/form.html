@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Imagen</title>
+    <script>
+        function convertirImagenABase64() {
+            const archivoInput = document.getElementById('imagen');
+            const archivo = archivoInput.files[0];
+            const lector = new FileReader();
+
+            lector.onloadend = function() {
+                // Convertir la imagen a Base64
+                const imagenBase64 = lector.result.split(',')[1];
+
+                // Crear el objeto JSON para enviar
+                const jsonData = {
+                    imagen: imagenBase64
+                };
+
+                // Enviar el JSON al servidor usando fetch
+                fetch('formUpload.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(jsonData)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Mostrar la respuesta del servidor
+                    document.getElementById('resultado').innerHTML  = data;
+                })
+                .catch(error => {
+                    console.error('Error al enviar la imagen:', error);
+                });
+            };
+
+            // Leer el archivo seleccionado como base64
+            lector.readAsDataURL(archivo);
+        }
+    </script>
+</head>
+<body>
+    <h1>Subir Imagen</h1>
+    <form onsubmit="event.preventDefault(); convertirImagenABase64();">
+        <label for="imagen">Selecciona una imagen:</label>
+        <input type="file" id="imagen" accept="image/*" required>
+        <br><br>
+        <button type="submit">Subir Imagen</button>
+    </form>
+    <p id="resultado"></p>
+</body>
+</html>

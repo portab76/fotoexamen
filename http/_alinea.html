@@ -1,0 +1,42 @@
+
+<script>
+function disableOthers(selected) {
+    document.getElementById('urlInput').style.display = 'none';
+    document.getElementById('fileInput').style.display = 'none';
+    document.getElementById('cameraInput').style.display = 'none';
+
+    if (selected === 'url') {
+        document.getElementById('urlInput').style.display = 'block';
+        document.getElementById('urlInput').disabled = false;
+    } else if (selected === 'file') {
+        document.getElementById('fileInput').style.display = 'block';
+        document.getElementById('fileInput').disabled = false;
+    } else if (selected === 'camera') {
+        document.getElementById('cameraInput').style.display = 'block';
+        document.getElementById('cameraInput').disabled = false;
+    }
+}
+</script>
+<style>
+.form-check-inline {
+    margin-right: 15px; /* Espaciado entre los radio buttons */
+}
+</style>
+<div class="form-group">
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="imageSource" value="url" onclick="disableOthers('url')" id="urlRadio" />
+        <label class="form-check-label" for="urlRadio">Desde URL</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="imageSource" id="fileRadio" value="file" onclick="disableOthers('file')" />
+        <label class="form-check-label" for="fileRadio">Archivo</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="imageSource" id="cameraRadio" value="camera" onclick="disableOthers('camera')" />
+        <label class="form-check-label" for="cameraRadio">Cámara</label>
+    </div>
+</div>
+
+<input type="text" id="urlInput" name="url" class="form-control" disabled="disabled" style="display:none; margin-top: 10px;" />
+<input type="file" id="fileInput" name="file" class="form-control-file form-control" accept="image/*" style="display:none; margin-top: 10px;" />
+<input type="file" id="cameraInput" name="camera" class="form-control-file form-control" accept="image/*" capture="camera" style="display:none; margin-top: 10px;" />
