@@ -1,0 +1,1 @@
+FOTOEXAMEN use gemini api ia
