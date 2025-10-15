@@ -9,7 +9,6 @@ import spark.Response;
 public class MainPreguntasApp {
     public static void main(String[] args) {
 
-        //secure("/home/debian/keystore.jks", "Papablopo532.", null, null);
         port(4567);
         enableCORS();
         // Definir una ruta POST que acepte un JSON
